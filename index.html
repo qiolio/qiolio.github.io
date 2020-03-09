@@ -74,5 +74,61 @@
 
 </body>
 
+
+搜索博文/帖子/用户
+ 
+
+一天只弹出1次的公告代码 原创
+
+小小鱼儿小小林
+
+3330次阅读 2017-09-26
+
+关注
+<html>
+<head>
+<title>温馨提醒</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+<body>
+<script>
+var alertmessage="发生错误：016033"
+var once_per_session=1
+function get_cookie(Name) {
+  var search = Name + "="
+  var returnvalue = "";
+  if (document.cookie.length > 0) {
+    offset = document.cookie.indexOf(search)
+    if (offset != -1) { // if cookie exists
+      offset += search.length
+      end = document.cookie.indexOf(";", offset);
+      if (end == -1)
+         end = document.cookie.length;
+      returnvalue=unescape(document.cookie.substring(offset, end))
+      }
+   }
+  return returnvalue;
+}
+
+function alertornot(){
+if (get_cookie('alerted')==''){
+loadalert()
+document.cookie="alerted=yes"
+}
+}
+
+function loadalert(){
+alert(alertmessage)
+}
+
+if (once_per_session==0)
+loadalert()
+else
+alertornot()
+</script>
+</body>
+</html>
+
+
 </html>
 </html>
